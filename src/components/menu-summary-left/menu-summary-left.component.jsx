@@ -1,11 +1,12 @@
 import React from 'react';
 import './menu-summary-left.styles.scss';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const MenuItemsCount = (props) => {
+const MenuItemsCount = ({menuCount}) => {
   return (
     <div className="menu-summary-left">
-      <span>{props.menuCount} items</span>
+      <span>{menuCount} items</span>
     </div>
   );
 };
@@ -13,5 +14,9 @@ const MenuItemsCount = (props) => {
 const mapStateToProps = ({menu}) => ({
   menuCount: menu.selected_items_list.length
 });
+
+MenuItemsCount.propTypes = {
+  menuCount: PropTypes.number
+};
 
 export default connect(mapStateToProps)(MenuItemsCount);

@@ -2,12 +2,13 @@ import React from 'react';
 import './item-picker.styles.scss';
 import MenuItem from '../menu-item/menu-item.component';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const ItemPicker = (props) => {
+const ItemPicker = ({allMenuItems}) => {
   return (
     <ul className="item-picker">
       {
-        props.allMenuItems
+        allMenuItems
         .map((item) => (
           <MenuItem
             key={item.id}
@@ -23,5 +24,9 @@ const ItemPicker = (props) => {
 const mapStateToProps = ({menu}) => ({
   allMenuItems: menu.all_menu_items
 });
+
+ItemPicker.propTypes = {
+  allMenuItems: PropTypes.array
+};
 
 export default connect(mapStateToProps)(ItemPicker);
