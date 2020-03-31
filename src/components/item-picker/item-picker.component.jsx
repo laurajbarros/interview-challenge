@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const ItemPicker = ({allMenuItems}) => {
   return (
-    <ul className="item-picker">
+    <ul data-testid='item-picker' className="item-picker">
       {
         allMenuItems
         .map((item) => (

@@ -1,9 +1,9 @@
 import React from 'react';
 import './dietary.styles.scss';
 
-const Dietary = (props) => {
+const Dietary = ({tag}) => {
   return(
-    <span className="dietary">{props.tag}</span>
+    <span data-testid='dietary' className="dietary">{tag}</span>
   );
 };
 

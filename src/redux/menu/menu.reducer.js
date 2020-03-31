@@ -1,4 +1,6 @@
 import item_list from '../../items.js';
+import { ADD_ITEM_TO_MENU, REMOVE_ITEM_FROM_MENU } from './menu.actions';
+
 
 const INITIAL_STATE = {
   selected_items_list: [],
@@ -32,7 +34,7 @@ const addItemToList = (originalList, newItem) =>{
 
 const menuReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'ADD_ITEM_TO_MENU':
+    case ADD_ITEM_TO_MENU:
       const newSelectedMenu = addItemToList(state.selected_items_list, action.payload);
       return {
         ...state,
@@ -40,7 +42,7 @@ const menuReducer = (state = INITIAL_STATE, action) => {
         selected_items_list: newSelectedMenu,
         selected_items_by_menu_type: updateDietariesCount(newSelectedMenu)
       };
-    case 'REMOVE_ITEM_FROM_MENU':
+    case REMOVE_ITEM_FROM_MENU:
       const newMenu = removeItemFromList(state.selected_items_list, action.payload.id);
       return {
         ...state,

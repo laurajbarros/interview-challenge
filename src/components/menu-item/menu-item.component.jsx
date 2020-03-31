@@ -18,6 +18,7 @@ class MenuItem extends React.Component {
     const {item, showRemoveButton} = this.props;
     return (
       <li
+        data-testid='menu-item'
         onClick={this.handleAddItemToMenu}
         className="item"
       >
