@@ -9,4 +9,5 @@ it('renders without crashing', () =>{
   ReactDom.render(<Provider store={store}>
     <ItemPicker></ItemPicker>
     </Provider>, div);
+  ReactDom.unmountComponentAtNode(div);
 })

@@ -9,4 +9,5 @@ it('renders without crashing', () =>{
   ReactDom.render(<Provider store={store}>
     <MenuSummaryRight></MenuSummaryRight>
     </Provider>, div);
+    ReactDom.unmountComponentAtNode(div);
 })
