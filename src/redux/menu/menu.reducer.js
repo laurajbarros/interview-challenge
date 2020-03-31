@@ -7,15 +7,15 @@ const INITIAL_STATE = {
 };
 
 const updateDietariesCount = (items) => {
+  let allDietaries = [];
   let dietaryHash = {};
   items.forEach((item)=>{
-    item.dietaries.forEach((diet)=>{
-      if(dietaryHash[diet]){
-        dietaryHash[diet]++;
-      } else {
-        dietaryHash[diet] = 1;
-      }
-    });
+    allDietaries = [...allDietaries,...item.dietaries];
+    dietaryHash = allDietaries.reduce((acc, each)=>{
+        let val;
+        acc[each] ? val = ++acc[each] : val = 1;
+        return {...acc, [each]: val}
+    },{});
   });
   return dietaryHash;
 }
